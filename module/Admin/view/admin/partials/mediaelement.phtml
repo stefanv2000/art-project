@@ -1,0 +1,29 @@
+<?php /* @var $content array */ 
+//print_r($content);
+$cover =$content;
+
+if (isset($content['cover'])) $cover=$content['cover'];
+ 
+?>
+<div class="mediaelementcontainer" id="mediaelementcontainer_<?php echo $content['id'];?>" data-idelem="<?php echo $content['id'];?>">
+<div class="mediaelement" id="mediaelement_<?php echo $content['id'];?>" data-mediasource="/media/content/<?php echo $content['hashcode'].'.'.$content['extension'] ?>" data-mediawidth="<?php echo $content['width'];?>" data-mediaheight="<?php echo $content['height'];?>" data-mediatype="<?php echo $content['type'];?>">
+<?php
+$tmbsrc = '/media/nopreview/thumbnails/nopreviewimage_w150_h100.png';
+if ($cover['type'] === 1) $tmbsrc = '/media/images/thumbnails/'.$cover['hashcode'].'_w150_h100.'.$cover['extension'];
+$opacity=1;  
+if ($cover['status'] === 0){
+	$opacity=0.2;
+}
+?>
+<img src="<?php echo $tmbsrc;?>" id="mediaimage_<?php echo $content['id'];?>" class="mediaimage" data-opacity="<?php echo $opacity;?>"/>
+<img src="/img/mediatype_<?php
+if ($content['type']==4){
+	echo $content['name'];
+} else
+echo $content['type'];?>.png" class="mediatype" />
+</div>
+<img src="/img/editicon.png" class="adminimgicons" id="admineditcontent_<?php echo $content['id'];?>" title="Edit content"/>
+<img src="/img/deleteicon.png" class="adminimgicons" id="admindeletecontent_<?php echo $content['id'];?>" title="Delete content"/>
+<img src="/img/covericon.png" class="adminimgicons" id="admincovercontent_<?php echo $content['id'];?>" title="Thumbnail cover content" />
+<input type="checkbox" class="admincheckboxcontent" id="admincheckboxcontent_<?php echo $content['id'];?>" />
+</div>

@@ -1,0 +1,13 @@
+            <?php /* @var $textblock Entities\Entity\TextBlock */ ?>
+            <div class="textblockcontainer list-group-item<?php if ($textblock['status'] != '1') echo " sectiondisabled"?>" id="textblockcontainer_<?php echo $textblock['id'];?>">
+            <div class="sectionname" id="textblockname_<?php echo $textblock['id'];?>">
+                <?php echo $textblock['name'];?>
+            </div>
+                <div class="textblockactions">
+            <div class="textblockstatus">
+                <a href="#" id="textblockchangestatuslink_<?php echo $textblock['id'];?>"><?php if ($textblock['status'] == '1') echo "Disable"; else echo "Enable"?> textblock</a>
+            </div> 
+            <a href="#" id="edittextblocklink_<?php echo $textblock['id'];?>">Edit</a> 
+            <a href="#" id="deletetextblocklink_<?php echo $textblock['id'];?>">Delete</a>
+                    </div>
+            </div>

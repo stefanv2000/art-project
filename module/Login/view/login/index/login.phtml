@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+<div class="alert alert-info"><?php $mess = $form->get('login')->getMessages();if (count($mess)>=1) echo $mess[0];?>
+<?php echo $this->flashmessenger()->render("userlogin");?>
+</div>
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-3">
+<?php 
+echo $this->form()->openTag($form);
+echo $this->formLabel($form->get('email'));
+echo $this->formElement($form->get('email'));
+echo $this->formElementErrors($form->get('email'));
+echo $this->formLabel($form->get('password'));
+echo $this->formElement($form->get('password'));
+echo $this->formElementErrors($form->get('password'));
+echo "<br />";
+echo $this->formElement($form->get('login'));
+echo $this->form()->closeTag($form);
+
+?>
+</div>
+<div class="col-md-3">
+</div>

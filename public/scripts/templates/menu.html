@@ -1,0 +1,35 @@
+<nav id="mainnavigation">
+<div class="logo">
+<a href="/" id="linklogo">Arthur Peterson</a>
+</div>
+<div class="menuicon">
+<img id="menuicon" class="menuiconimage" src="/img/menuicon.png" />
+</div>
+<ul id="navigation">
+<%
+_.each(menucollection,function(element){
+	if (element.type == 'blank' ){ %>
+	<li class="blankmenu menuitemlink">|</li>
+	<% } else {%>
+	<li class="menuitemli" id="menuitem<%=element.id%>"><a href="<%=element.slug%>" class="menuitemlink" data-itemtype="<%-element.type%>"><%-element.name%></a>
+	</li>
+	<% } %>
+<% }) %>
+</ul>
+	<div class="shareicons">
+		<a href="http://facebook.com" class="sharelink" target="_blank">
+			<img src="/img/facebook.png" class="shareimg">
+		</a>
+		<a href="http://instagram.com" class="sharelink" target="_blank">
+			<img src="/img/insta.png" class="shareimg">
+		</a>
+		<a href="http://twitter.com" class="sharelink" target="_blank">
+			<img src="/img/twitter.png" class="shareimg">
+		</a>
+		<a href="http://pinterest.com" class="sharelink" target="_blank">
+			<img src="/img/pinterest.png" class="shareimg">
+		</a>
+
+	</div>
+</nav>
+

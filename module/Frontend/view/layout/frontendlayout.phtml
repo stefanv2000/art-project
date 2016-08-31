@@ -1,0 +1,43 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('Arthur Peterson  |'); ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        				->prependStylesheet($this->basePath() . '/scripts/css/style.css')
+                        ->prependStylesheet('//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css')
+                        ->prependStylesheet($this->basePath() . '/css/main.css')
+                        ->prependStylesheet('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300') ?>
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Exo:900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/scripts/app/main.js')
+            ->prependFile($this->basePath() . '/scripts/libs/require.js')            
+            ->prependFile($this->basePath() . '/scripts/app/utils.js')
+            //->prependFile($this->basePath() . '/scripts/libs/masonry.pkgd.min.js')
+        ; ?>
+		
+		<?php echo $this->initializemodels();?>
+		
+    </head>
+    <body>
+    
+    <noscript>
+    <?php echo $this->content; ?>
+    </noscript>
+
+    </body>
+</html>

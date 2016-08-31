@@ -1,0 +1,22 @@
+<% _.each(still.get('subsections').toJSON(), function(subsection){ %>
+<div class="stillcategory">
+<div class="stillmainheading"><%-subsection.name%></div>
+<div class="leftcolor">
+    <div class="leftcolorbar" style="height:100px;background-color: <%-subsection.color%>">
+    </div>
+</div>
+<div class="portfoliorightcontainer">
+    <% _.each(subsection.projects, function(project){ %>
+    <div class="stillprojectholder" data-href="<%-project.slug%>">
+        <img src="/media/images/<%-project.cover.hashcode%>_w200_h100.<%-project.cover.extension%>" data-width="<%-project.cover.width%>" data-height="<%-project.cover.height%>" class="stillprojectimage" >
+        <div class="stillprojectoverlay" style="background-color: <%-subsection.color%>">
+            <div class="stillprojectoverlayinside">
+            <%-subsection.name%><br /><span><%-project.name%></span>
+            </div>
+        </div>
+    </div>
+
+    <% }); %>
+</div>
+</div>
+<% }); %>

@@ -1,0 +1,29 @@
+<div class="contentholdercontainer" id="contentholdercontainer<%-content.id%>">
+<% if (content.type==1) { //is image %>
+<img src="/media/images/<%-content.hashcode%>_w1200.<%-content.extension%>" data-originalwidth="<%-content.width%>" data-originalheight="<%-content.height%>" id="contentcontent<%-content.id%>" class="contentcontent" style="border:1px solid <%-color%>"/>
+<% } //end image type 
+else
+if ((content.type==4)) { //is video link %>
+<!--  <img src="/media/images/<%-content.cover.hashcode%>_w1200.<%-content.cover.extension%>" data-originalwidth="<%-content.cover.width%>" data-originalheight="<%-content.cover.height%>" id="contentcontent<%-content.id%>" class="contentcontent previewcontent" />
+<img src="/img/playbut.png" id="playbutton" />
+-->
+<% if (content.mimetype=='vimeo') { //is vimeolink %>
+<iframe src="//player.vimeo.com/video/<%-content.hashcode%>?player_id=contentplayer<%-content.id%>" id="contentplayer<%-content.id%>" width="<%-content.width%>" height="<%-content.height%>" data-originalwidth="<%-content.width%>" data-originalheight="<%-content.height%>" class="contentcontent realcontent" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<% } //end vimeo link 
+else
+if (content.mimetype=='youtube') { %>
+<iframe id="ytplayer" type="text/html" width="<%-content.width%>" height="<%-content.height%>" data-originalwidth="<%-content.width%>" data-originalheight="<%-content.height%>" class="contentcontent realcontent"
+  src="http://www.youtube.com/embed/<%-content.hashcode%>?wmode=opaque&autoplay=0"
+  frameborder="0"/>
+<% }
+} //end youtubelink
+else 
+if (content.type==2) { //is video %>
+ <video  src="/media/video/<%-content.hashcode%>.<%-content.extension%>" poster="/media/images/<%-content.cover.hashcode%>_w<%-content.width%>_h<%-content.height%>.<%-content.cover.extension%>" width="<%-content.width%>" height="<%-content.height%>" data-originalwidth="<%-content.width%>" data-originalheight="<%-content.height%>" class="contentcontent realcontent"  controls>
+  <source src="/media/video/<%-content.hashcode%>.<%-content.extension%>" >
+  Your browser does not support the video tag.
+</video> 
+<% } 
+
+%>
+</div>

@@ -1,0 +1,22 @@
+<% _.each(motion.get('projects').toJSON(), function(project){ %>
+<div class="stillcategory">
+    <div class="stillmainheading"><%-project.name%></div>
+    <div class="leftcolor">
+        <div class="leftcolorbar" style="height:100px;background-color: <%-project.color%>">
+        </div>
+    </div>
+    <div class="portfoliorightcontainer">
+        <% _.each(project.content, function(content){ %>
+        <div class="stillprojectholder" data-href="<%-project.slug+'/'+content.id%>">
+            <img src="/media/images/<%-content.cover.hashcode%>_w200_h100.<%-content.cover.extension%>" data-width="<%-content.cover.width%>" data-height="<%-content.cover.height%>" class="stillprojectimage" >
+            <div class="stillprojectoverlay" style="background-color: <%-project.color%>">
+                <div class="stillprojectoverlayinside">
+                    <span><%-functions.trimString(content.caption,30)%></span>
+                </div>
+            </div>
+        </div>
+
+        <% }); %>
+    </div>
+</div>
+<% }); %>

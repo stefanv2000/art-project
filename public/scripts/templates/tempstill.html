@@ -1,0 +1,11 @@
+<% _each(still.subsections, function(index,subsection){ %>
+<h2><%-subsection.name%></h2>
+<div class="leftcolor">
+    <div class="leftcolorbar" style="height:100px">
+    </div>
+</div>
+<div class="portfoliorightcontainer">
+    <% _each(subsection.projects, function(index,project){ print(project.name);%>
+    <% }); %>
+</div>
+<% }); %>

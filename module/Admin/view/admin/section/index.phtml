@@ -1,0 +1,101 @@
+<?php $this->headScript()->appendFile('/js/dropzone.js'); ?>
+<?php $this->headScript()->appendFile('/js/adminsection.js'); ?>
+<?php $this->headScript()->appendFile('/js/admincontent.js'); ?>
+<?php $this->headScript()->appendFile('/js/admintextblock.js'); ?>
+<?php $this->headLink()->appendStylesheet('/css/dropzone.css'); ?>
+
+<div class="container-fluid">
+<div class="row">
+<?php
+     $parentid = 0;
+$currentSectionId = 0;
+if ($currentsection!=null) {
+     if ($currentsection->getParent()!=null) $parentid =$currentsection->getParent()->getId();
+    $currentSectionId = $currentsection->getId();
+?>
+<a href="<?php echo $this->url('admin-section',array('sectionid' => $parentid));?>">Back to parent section</a><br /><br />
+<h2><?php echo $currentsection->getName();?></h2>
+
+<?php } ?>
+
+</div>
+
+
+<div class="row" id="tabs">
+    <?php if ($currentsection!=null) {?>
+    <ul>
+        <li><a href="#tabsections">Sections</a></li>
+
+        <li><a href="#tabmedia">Media files</a></li>
+        <li><a href="#tabtext">Text content</a></li>
+
+    </ul>
+    <?php } ?>
+    <div id="tabsections">
+<a href="#" id="showaddnewsectionform">Add new Section</a>
+<div id="containernewsectionform">
+
+</div>
+    <h2>Subsections</h2>
+    <div id="subsections">
+    <?php
+        /* @var $section Entities\Entity\Section */ 
+        foreach ($sections as $section) {  
+                echo $this->partial('admin/partials/sectionline.phtml',array('section' => $section));
+        } ?>
+    </div>
+    </div>
+    <?php if ($currentsection!=null) {?>
+    <div id="tabmedia">
+    
+    <div id="dropzone" class="dropzone" data-url="<?php echo $this->url('admin-content/upload');?>" data-sectionid="<?php echo $currentsection->getId();?>">
+    </div>
+    <div id="formvideosite">
+    <label>Link youtube/vimeo</label>
+    <input class="form-control" type="text" id="formlinkvideosite"/>
+    <input type="hidden" name="sectionid" id="videolinksectionid" value="<?php echo $currentsection->getId(); ?>" />
+    <input type="submit" value="Add link" id="submitformlinkvideo" class="btn btn-default" name="submit">
+    <div id="resultnewvideolinkform">
+	</div>
+    </div>
+    <div id="mediacontainer">
+    <?php
+        for ($i = 0; $i < count($media); $i++) {            
+            echo $this->partial('admin/partials/mediaelement.phtml',array('content' => $media[$i]));
+        }
+    ?>    
+    </div>
+    <div id="bulkselect">
+    <a href="#" id="selectallcontent">Select all</a>
+    <a href="#" id="clearselectioncontent">Clear selection</a>
+    </div>
+    <div id="bulkactions">
+    With selected: <a href="#" id="bulkdeletecontent">Delete</a>
+    <a href="#" id="bulkenablecontent">Enable</a>
+    <a href="#" id="bulkdisablecontent">Disable</a>
+    <a href="#" id="bulkmovecontent">Move to other section</a>
+    </div>
+    </div>
+    <div id="tabtext">
+    
+<a href="#" id="showaddnewtextblock">Add new text block</a>
+<div id="containernewtextblockform">
+
+</div>    
+     <h2>Text blocks</h2>
+    <div id="textblocks">
+    <?php
+        /* @var $textblock Entities\Entity\TextBlock */ 
+        foreach ($textblocks as $textblock) {  
+                echo $this->partial('admin/partials/textblockline.phtml',array('textblock' => $textblock));
+        } ?>
+    </div>   
+    </div>
+    <?php } ?>
+</div>
+</div>
+
+<?php
+$this->inlineScript()->appendScript("var parentSectionId = ".$parentid);
+$this->inlineScript()->appendScript("var currentSectionId = ".$currentSectionId);
+?>

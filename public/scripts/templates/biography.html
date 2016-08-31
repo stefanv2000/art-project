@@ -1,0 +1,35 @@
+<div class="leftcolor">
+	<div class="leftcolorbar" style="background-color: <%-page.color%>;height:100px;">
+
+	</div>
+</div>
+<div class="textpagecontainer biographycontainer">
+
+
+<div class="pagetextinside textintroduction" >
+<%
+var element =functions.getTextblock('introduction');
+if (element !=null ){
+	print(element.content);
+}
+%>
+</div>
+    <% if (content.length>0){ %>
+    <div class="pageimagecontainer">
+        <img src="/media/images/<%-content[0].hashcode%>.<%-content[0].extension%>" class="imagepage" />
+    </div>
+    <% } %>
+
+
+<div class="pagetextinside" >
+<%
+var element =functions.getTextblock('comitment');
+if (element !=null ){
+	print(element.content);
+}
+%>
+</div>
+
+</div>
+
+

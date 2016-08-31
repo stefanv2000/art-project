@@ -1,0 +1,27 @@
+<div class="portfoliocontainer">
+    <div style="overflow:auto;">
+    <div class="stillmainheading portfolioheading" style="color:<%-portfolio.color%>"><%-portfolio.category%> <span><%-portfolio.name%></span>
+
+    </div>
+    <div class="closebutton" style="color:<%-portfolio.color%>"><div class="boxclose"></div><div class="closetext">close</div> </div>
+        <div class="contentdetailsseparator"></div>
+    </div>
+
+    <div class="leftcolor">
+        <div class="leftcolorbar" style="background-color: <%-portfolio.color%>;height:100px;">
+
+        </div>
+    </div>
+    <div class="portfoliorightcontainer">
+        <% _.each(content,function(element){ %>
+        <div class="stillprojectholder" data-href="<%-portfolio.slug+'/'+element.id%>" >
+            <img src="/media/images/<%-element.hashcode%>_w200_h100.<%-element.extension%>" data-width="<%-element.width%>" data-height="<%-element.height%>" class="stillprojectimage" >
+            <div class="stillprojectoverlay portfoliooverlay" >
+                <div class="stillprojectoverlayinside">
+                    <%-functions.trimString(element.caption,50)%></span>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>

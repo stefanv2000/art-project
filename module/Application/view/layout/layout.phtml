@@ -1,0 +1,63 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('PhotoCMS'); ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+            ->appendStylesheet($this->basePath() . '/css/jqueryui/jquery-ui-1.10.0.custom.css')
+            ->prependStylesheet('//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                        ->prependStylesheet('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300')
+        ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile('//code.jquery.com/ui/1.11.3/jquery-ui.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')            
+            ->prependFile('https://code.jquery.com/jquery-1.11.2.min.js')
+            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+            ->appendFile($this->basePath() . '/js/html5lightbox/html5lightbox.js')
+            //->appendFile($this->basePath() . '/js/tinymce/tinymce.min.js')
+            ->prependFile($this->basePath() . '/js/vendor/ckeditor/ckeditor.js')
+            ->appendFile('/js/vendor/ckeditor/adapters/jquery.js');
+        
+            
+            //->appendFile($this->basePath() . '/js/sceditor/jquery.sceditor.min.js')
+            
+        ; ?>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                    <?php echo $this->menulinks();?>
+                        
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="container" id="tcontainer">
+            <?php echo $this->content; ?>
+            <hr>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

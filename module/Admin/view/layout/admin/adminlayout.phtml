@@ -1,0 +1,12 @@
+<?php echo $this->partial("layout/admin/header");?>
+    <body>
+    
+<?php echo $this->partial("layout/admin/navigation");?>
+
+        <div class="container">
+            <?php echo $this->content; ?>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    <div id="footeradmin" style="height:100px"></div>
+    </body>
+</html>

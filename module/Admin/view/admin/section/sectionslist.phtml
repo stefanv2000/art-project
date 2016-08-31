@@ -1,0 +1,17 @@
+
+<form id="formmovesection" class="form-horizontal" name="" method="post">
+<label for="newsection">Move to section</label>
+<select name="newsection" id="newsection">
+	<option value="0">ROOT</option>
+<?php 
+foreach ($sectionsiterator as $index => $child_section)
+{
+	echo '<option value="' . $child_section->getId() . '">' . str_repeat('---', $sectionsiterator->getDepth()) . $child_section->getName() . '</option>';
+   
+}
+?>
+</select>
+
+<input type="submit" value="Submit" id="submitaddnewsection" class="btn btn-default" name="submit">
+</form>
+<div id="moveformresult" class="moveformresult"></div>

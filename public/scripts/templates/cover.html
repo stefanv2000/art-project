@@ -1,0 +1,15 @@
+<% if (cover.length>0) {
+element = cover[0]; 
+%>
+<div id="sectionheader">
+<div class="inside" style="background:rgba(0, 0, 0, 0) url('/media/images/<%-element.hashcode%>.<%-element.extension%>') no-repeat fixed center center / cover ;">
+</div>
+<div class="sectiontitle">
+<div>
+</div>
+<div class="sectiontitleborder">
+<% if (_.isUndefined(pagetitle)) print(''); else print(pagetitle); %>
+</div>
+</div>
+</div>
+<% } %>

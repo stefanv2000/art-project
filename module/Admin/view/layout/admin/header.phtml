@@ -1,0 +1,40 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('Admin area')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+            ->appendStylesheet($this->basePath() . '/css/jqueryui/jquery-ui-1.10.0.custom.css')
+                        //->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+        ->prependStylesheet('//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300')
+            //->appendStylesheet($this->basePath() . '/js/vendor/trumbowyg/ui/trumbowyg.css')
+            ->appendStylesheet($this->basePath() . '/app/css/styliststyle.css')
+
+
+        ?>
+        <!-- Scripts -->
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile('//code.jquery.com/ui/1.11.3/jquery-ui.js')
+        ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+        ->prependFile('https://code.jquery.com/jquery-1.11.2.min.js')
+        ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+        ->appendFile($this->basePath() . '/js/html5lightbox/html5lightbox.js')
+        //->appendFile($this->basePath() . '/js/tinymce/tinymce.min.js')
+        ->prependFile($this->basePath() . '/js/vendor/ckeditor/ckeditor.js')
+        //->appendFile($this->basePath() . '/js/vendor/trumbowyg/trumbowyg.min.js')
+            //->appendFile($this->basePath() . '/js/vendor/trumbowyg/plugins/upload/trumbowyg.upload.min.js')
+            //->appendFile($this->basePath() . '/js/vendor/trumbowyg/plugins/base64/trumbowyg.base64.js')
+            ->appendFile($this->basePath() . '/js/app/admin/adminmain.js')
+            ->appendFile('//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
+            ->appendFile('/js/vendor/ckeditor/adapters/jquery.js');
+
+?>
+    </head>

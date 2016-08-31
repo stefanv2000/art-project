@@ -1,0 +1,15 @@
+            <?php /* @var $section Entities\Entity\Section */ ?>
+            <div class="sectioncontainer list-group-item<?php if ($section->getStatus() != '1') echo " sectiondisabled"?>" id="sectioncontainer_<?php echo $section->getId();?>">
+            <div class="sectionname" id="sectionname_<?php echo $section->getId();?>">
+                <?php echo $section->getName();?>
+            </div>
+                <div class="sectionactions">
+            <a href="<?php echo $this->url('admin-section',array('sectionid' => $section->getId()));?>">Go to section</a>
+            <div class="sectionstatus">
+                <a href="#" id="changestatuslink_<?php echo $section->getId();?>"><?php if ($section->getStatus() == '1') echo "Disable"; else echo "Enable"?> section</a>
+            </div> 
+            <a href="#" id="editsectionlink_<?php echo $section->getId();?>">Edit</a> 
+            <a href="#" id="deletesectionlink_<?php echo $section->getId();?>">Delete</a>
+            <a href="#" id="movesectionlink_<?php echo $section->getId();?>">Move</a>
+                    </div>
+            </div>

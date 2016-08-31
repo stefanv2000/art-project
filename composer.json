@@ -1,0 +1,17 @@
+{
+  "name" : "gp/photocms",
+  "require" : {
+    "php" : ">=5.3.3",
+    "zendframework/zendframework" : "dev-master",
+    "zendframework/zend-developer-tools" : "dev-master",
+    "zendframework/zftool" : "dev-master",
+    "bjyoungblood/bjy-authorize" : "1.4.*",
+    "doctrine/doctrine-orm-module" : "dev-master",
+    "james-heinrich/getid3" : "dev-master",
+    "vimeo/vimeo-api" : ">=1.2.3",
+    "ifsnop/mysqldump-php":"1.*"
+  },
+  "minimum-stability" : "dev",
+  "license" : "MIT",
+  "homepage" : "http://www.google.com"
+}

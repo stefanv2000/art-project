@@ -1,0 +1,22 @@
+<div class="stillmainheading">
+    clients
+</div>
+<div class="leftcolor">
+    <div class="leftcolorbar" style="background-color: <%-page.color%>;height:100px;">
+
+    </div>
+</div>
+
+<div class="textpagecontainer">
+    <%
+    var element =functions.getTextblock('list');
+    if (element !=null ){
+        //var clientslist = element.content.split('\n');
+        var clientslist = _.map(element.content.split('\n'),function(client){return client.trim().replace(/[<]br[^>]*[>]/gi,"");  });
+        //_.map(clientslist,function(client){console.log(client);return client;});
+        _.each(clientslist,function(client,index){%>
+        <div class="clientholder clientindex<%-index%3%>"><%-client%></div>
+     <%   });
+    }
+    %>
+</div>

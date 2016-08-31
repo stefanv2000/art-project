@@ -1,0 +1,72 @@
+<div class="stillmainheading">
+	contact
+</div>
+<div class="leftcolor">
+	<div class="leftcolorbar" style="background-color: <%-page.color%>;height:100px;">
+
+	</div>
+</div>
+
+<div class="textpagecontainer contactpageconteiner" >
+
+<div id="contactdetails">
+<div id="contactleft">
+<div class="pagetextinside" >
+<%
+var personal =functions.getTextblock('personal');
+if (personal !=null ){
+	print(personal.content);
+}
+%>
+</div>
+</div>
+<% if (content.length>0){ %>
+<div class="pageimagecontainer">
+<img src="/media/images/<%-content[0].hashcode%>.<%-content[0].extension%>" class="imagepage" />
+</div>
+<% } %>
+<div id="contactright">
+<div class="pagetextinside" >
+<p>
+Represented by
+</p>
+<%
+var represented =functions.getTextblock('represented');
+if (represented !=null ){
+	print(represented.content);
+}
+%>
+</div>
+</div>
+
+</div>
+
+<h2>Contact us</h2>
+<!-- contact form -->
+<div id="contactform">
+<div id="contactmessages" style="height:40px;text-align:center;">
+</div>
+
+<form method="post" action="" id="formcontact">
+<fieldset >
+<label>Name</label>
+<input type="text" id="contactname" name="contactname" class="inputcontactform" placeholder="name"/>
+</fieldset>
+<fieldset >
+<label>Email</label>
+<input type="text" id="contactemail" name="contactemail" class="inputcontactform" placeholder="email"/>
+</fieldset>
+<fieldset >
+<label>Message</label>
+<textarea id="contactmessage" name="contactmessage" class="inputcontactform" placeholder="message" rows="10">
+</textarea>
+</fieldset>
+<fieldset >
+<input type="submit" id="sendmessage" name="sendmessage" class="inputsubmit" value="Send message"/>
+</fieldset>
+<div id="contacterrormessages" style="padding-left:30px;display:none">
+</div>
+</form>
+
+</div>
+</div>

@@ -1,0 +1,15 @@
+<div class="leftcolor introleftcolor">
+<div class="leftcolorbar" style="background-color: <%-intro[0].color%>;height:200px;">
+</div>
+</div>
+
+<div class="introrightcontainer">
+    <% _.each(intro,function(element){ %>
+    <div class="introcontentholder" data-href="<%-element.slug%>" style="background-color: <%-element.color%>">
+        <div class="introcontainerimageholder"><img src="/media/images/<%-element.cover.hashcode%>_w560_h400.<%-element.cover.extension%>" data-width="<%-element.cover.width%>" data-height="<%-element.cover.height%>" class="introimage" ></div>
+        <div class="introcontainertitleholder"><%-element.name%></div>
+    </div>
+
+    <% }); %>
+</div>
+

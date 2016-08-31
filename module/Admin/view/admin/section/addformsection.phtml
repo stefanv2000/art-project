@@ -1,0 +1,33 @@
+<?php
+echo $this->form()->openTag($form);
+echo $this->formLabel($form->get('name'));
+echo $this->formElement($form->get('name'));
+echo $this->formElementErrors($form->get('name'));
+echo $this->formLabel($form->get('status'));
+echo $this->formElement($form->get('status'));
+echo "enabled";
+echo $this->formElementErrors($form->get('status'));
+?>
+<div class="radiooptionsgroup">
+<?php
+echo $this->formLabel($form->get('type'));
+echo $this->formElement($form->get('type'));
+echo $this->formElementErrors($form->get('type'));
+?>
+    </div>
+    <?php
+echo $this->formLabel($form->get('description'));
+echo $this->formElement($form->get('description'));
+echo $this->formElementErrors($form->get('description'));
+echo $this->formLabel($form->get('customfield1'));
+echo $this->formElement($form->get('customfield1'));
+echo $this->formElementErrors($form->get('customfield1'));
+echo $this->formLabel($form->get('customfield2'));
+echo $this->formElement($form->get('customfield2'));
+echo $this->formElementErrors($form->get('customfield2'));
+echo $this->formElement($form->get('submit'));
+echo $this->formElement($form->get('parent_id'));
+echo $this->form()->closeTag($form);
+?>
+<div id="resultnewsectionform">
+</div>
